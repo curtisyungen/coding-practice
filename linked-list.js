@@ -116,6 +116,21 @@ class LinkedList {
     this.size = 0;
   }
 
+  reverse() {
+    let current = this.head;
+    let prev = null;
+    let next = null;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    return prev;
+  }
+
   // Print list data
   printListData() {
     let current = this.head;
@@ -133,7 +148,6 @@ ll.insertFirst(100);
 ll.insertFirst(200);
 ll.insertFirst(300);
 ll.insertLast(400);
-
-ll.clearList();
-
+ll.printListData();
+ll.reverse();
 ll.printListData();
